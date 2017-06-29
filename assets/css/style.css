@@ -1,0 +1,85 @@
+html,body,.view {
+    height: 100%;
+}
+
+.view {
+    background: url("../images/download.jpeg")no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: white;
+}
+
+.jumbotron{
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    width: 50%;
+    height: 100%;
+    background-color: gray;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    opacity: 0.5
+    
+}
+
+#display {
+    font-family: monospace;
+    font-size: 70px;
+    color: red;
+    text-align: center;
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    width: 20%;
+    height: 10%;
+    margin: 0px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    height: 84px;
+    background: aqua;
+    opacity: initial;
+    overflow: auto;
+}
+
+h1 {
+  color: white;
+}
+
+#buttons { /* Typography */
+  text-align: center;
+
+}
+
+#replay{
+  margin-top: 57px;
+  display: inline;
+}
+.btn-btn-primary {
+  margin-top: 107px;
+  display: inline;
+}
+
+button {
+  width: 100px;
+  position: fixed;
+  top: 10%;
+  left: 66%;
+  float: left;
+  height: 50px;
+  background: aqua;
+  opacity: initial;
+
+}
+
+form {
+    position: fixed;
+    top: 174px;
+    left: 26%;
+    color: darkblue;
+    margin: 10px;
+    max-width: 35%;
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Trivia Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="images" type="jpeg" href="assets/images/images.jpeg">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="view">
+      <h1>SPORT'S TRIVIA!!</h1>
+    <!--Intro content-->
+    <div class="jumbotron">
+
+      <div id="display">00:00</div>
+
+
+
+  <form>
+
+	<div class="form-group"> <!-- Radio group !-->
+		<label class="control-label">Who is the longest reigning heavyweight boxing champion?</label>
+		<div class="radio">
+		  <label>
+			<input type="radio" name="boxing" value="joe-louis">
+			Joe Louis
+		  </label>
+		</div>
+		<div class="radio">
+		  <label>
+			<input type="radio"  name="boxing" value="floyd">
+			Floyd Mayweather
+		  </label>
+		</div>
+	</div>
+
+  <div class="form-group">
+  <label class="control-label">What former player holds the record for MLB's most home run hits totaling 762?</label>
+  <div class="radio">
+    <label>
+    <input type="radio" name="baseball" value="ggross">
+    Germanual Gross
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+    <input type="radio"  name="baseball" value="bbonds">
+    Barry Bonds
+    </label>
+  </div>
+</div>
+
+<div class="form-group">
+<label class="control-label">What is profeesional wrestler John Cena's famous catchphrase?</label>
+<div class="radio">
+  <label>
+  <input type="radio" name="wrestling" value="jc1">
+  You can't see me!
+  </label>
+</div>
+<div class="radio">
+  <label>
+  <input type="radio"  name="wrestling" value="jc2">
+  You can't touch this!
+  </label>
+</div>
+</div>
+
+<div class="form-group">
+<label class="control-label">Who is the only athlete to ever play in a Super Bowl and a World Series?</label>
+<div class="radio">
+  <label>
+  <input type="radio" name="athlete" value="scurry">
+  Steph Curry
+  </label>
+</div>
+<div class="radio">
+  <label>
+  <input type="radio"  name="athlete" value="dsanders">
+  Deion Sanders
+  </label>
+</div>
+</div>
+
+<div class="form-group">
+<label class="control-label">Who is UT's starting QB this year?</label>
+<div class="radio">
+  <label>
+  <input type="radio" name="college-sports" value="sb">
+  Shane Buechele
+  </label>
+</div>
+<div class="radio">
+  <label>
+  <input type="radio"  name="college-sports" value="pf">
+  Poona Ford
+  </label>
+</div>
+</div>
+
+
+
+	<div class="form-group"> <!-- Submit button !-->
+    <div id="buttons">
+      <button id="start">Start Sports Trivia!</button>
+      <button id="replay">Play Again!</button>
+    </div>
+
+    <button class="btn-btn-primary " name="submit" type="submit">Submit</button>
+	</div>
+
+</form>
+
+
+</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript">
+    window.onload = function() {
+      $("#replay").on("click", stopwatch.reset);
+      $("#start").on("click", stopwatch.start);
+    };
+
+    //  Variable that will hold our setInterval that runs the stopwatch
+    var intervalId;
+
+    //allows the clock from being sped up unnecessarily
+    var clockRunning = false;
+
+    // Our stopwatch object
+    var stopwatch = {
+
+      time: 0,
+
+
+      reset: function() {
+
+        stopwatch.time = 0;
+
+        // DONE: Change the "display" div to "00:00."
+        $("#display").html("00:00");
+
+
+      },
+      start: function() {
+
+        // DONE: Use setInterval to start the count here and set the clock to running.
+        if (!clockRunning) {
+            intervalId = setInterval(stopwatch.count, 1000);
+            clockRunning = false;
+        }
+      },
+
+      count: function() {
+
+        // DONE: increment time by 1, remember we cant use "this" here.
+        stopwatch.time++;
+
+        // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
+        //       and save the result in a variable.
+        var converted = stopwatch.timeConverter(stopwatch.time);
+        console.log(converted);
+
+        // DONE: Use the variable we just created to show the converted time in the "display" div.
+        $("#display").html(converted);
+      },
+      timeConverter: function(t) {
+
+        var minutes = Math.floor(t / 60);
+        var seconds = t - (minutes * 60);
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
+        if (minutes === 0) {
+          minutes = "00";
+        }
+        else if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+
+        return minutes + ":" + seconds;
+      }
+    };
+
+    </script>
+  </body>
+</html>
